@@ -1,0 +1,24 @@
+cd ./文件名 进入某一个文件内
+
+用git连接vscode和github顺序：
+git init 创建本地.git文件夹
+git add .暂存到本地
+git commit -m"随便一条交互信息" 提交到本地仓库
+git remote add origin https://github.com/*****.git（自己的仓库名) 连接到远程仓库
+git remote set-url origin https://(用github生成的)token@github.com/*****.git（自己的仓库名) 连接到远程仓库 (token生成方法原文链接：https://blog.csdn.net/m0_56184347/article/details/124304029)
+git pull origin main --allow-unrelated-histories 拉取远程仓库的分支（如果之前本来就有项目存在，比如readme，需要操作，否则无法同步；从github克隆下来的仓库不需要）
+git push -u origin main 提交到远程仓库的分支main里
+git branch test-1 新创建一个本地分支test-1
+git checkout test-1 切换到分支test-1
+git push origin test-1:test-2 新建远程分支，并将本地分支test-1推送到远程分支test-2上（需要新建本地分支，远程分支可以在推送的时候自动创建）
+git branch --set-upstream-to=origin/test-2 test-1 将远程分支test-2和本地分支test-1相关联
+git branch -d test-1 删除本地分支test-1
+git push origin --delete test-2 删除远程分支test-2
+git branch 查看本地分支
+git branch -r 查看远端分支
+git branch -a 查看所有分支
+git remote prune origin 更新远端分支（如果有删除）
+git fetch --prune 更新本地分支（如果有删除）
+
+或者用clone直接把github仓库下载下来更方便：
+git clone *****（复制的项目链接）
